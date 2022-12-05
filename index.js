@@ -14,7 +14,7 @@ dotenv.config();
 conectarDB();
 
 // Configuracion de CORS
-const whiteList = [process.env.FRONTEND_URL]
+const whiteList = [process.env.FRONTEND_URL || "localhost:taskaminhb-frontend.vercel.app"]
 
 const corsOptions = {
     origin: function (origin, callback) {
