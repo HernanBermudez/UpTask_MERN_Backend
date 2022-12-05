@@ -14,12 +14,11 @@ dotenv.config();
 conectarDB();
 
 // Configuracion de CORS
-// const whiteList = [process.env.FRONTEND_URL]
-const vercelFront = ['taskaminhb-frontend.vercel.app']
+const whiteList = [process.env.FRONTEND_URL]
 
 const corsOptions = {
     origin: function (origin, callback) {
-        if (vercelFront.includes(origin)) {
+        if (whiteList.includes(origin)) {
             callback(null, true)
         } else {
             callback(new Error('Error de Cors'))
@@ -48,7 +47,7 @@ import {
 const io = new Server(servidor, {
     pingTimeout: 60000,
     cors: {
-        origin: vercelFront
+        origin: whiteList
     }
 })
 
